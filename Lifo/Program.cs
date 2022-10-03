@@ -30,7 +30,7 @@ static bool Validator(string input)
 
             char open = brackets.Pop();
 
-            // Inconsistent brackets, e.g. (123]
+         
             if (c == '}' && open != '{' ||
                 c == ')' && open != '(' ||
                 c == ']' && open != '[')
