@@ -24,23 +24,38 @@ static bool Validator(string input)
             brackets.Push(c);
         else if (c == ']' || c == '}' || c == ')')
         {
-
             if (brackets.Count == 0)
                 return false;
 
             char open = brackets.Pop();
 
-         
-            if (c == '}' && open != '{' ||
-                c == ')' && open != '(' ||
-                c == ']' && open != '[')
+            if (open != opposite(c))
                 return false;
         }
     }
-
 
     if (brackets.Count > 0)
         return false;
 
     return true;
+}
+
+static char opposite(char c)
+{
+    switch (c)
+    {
+        case '}':
+            return '{';
+            break;
+        case ']':
+            return '[';
+            break;
+        case ')':
+            return '(';
+            break;
+        default:
+            return c;
+
+    }
+
 }
